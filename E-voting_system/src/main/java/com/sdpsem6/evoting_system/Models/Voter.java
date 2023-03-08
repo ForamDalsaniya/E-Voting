@@ -8,21 +8,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Voter_List")
 public class Voter {
     @Id
-    public String adharId;
+    public String id;
     @Indexed(unique = true)
     public String voterId;
     public String name;
     public String state;
-    @DBRef
-    public Constituency constituency;
+//    @DBRef
+//    public Constituency constituency;
+    public String constituency;
     public boolean isVoted;
 
-    public String getAdharId() {
-        return adharId;
+    public String getId() {
+        return id;
     }
 
-    public void setAdharId(String adharId) {
-        this.adharId = adharId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getVoterId() {
@@ -49,11 +50,11 @@ public class Voter {
         this.state = state;
     }
 
-    public Constituency getConstituency() {
+    public String getConstituency() {
         return constituency;
     }
 
-    public void setConstituency(Constituency constituency) {
+    public void setConstituency(String constituency) {
         this.constituency = constituency;
     }
 
@@ -65,8 +66,8 @@ public class Voter {
         isVoted = voted;
     }
 
-    public Voter(String adharId, String voterId, String name, String state, Constituency constituency, boolean isVoted) {
-        this.adharId = adharId;
+    public Voter(String id, String voterId, String name, String state, String constituency, boolean isVoted) {
+        this.id = id;
         this.voterId = voterId;
         this.name = name;
         this.state = state;
